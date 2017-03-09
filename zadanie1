@@ -1,0 +1,32 @@
+#include <cstdio>
+
+int main(int argc, char** argv)
+{
+  int variable = 646; //stworzenei zminnej i przpeisanie jej wartosci
+  int* pointer = &variable; //stworzenie wskaznika przechowujacy adres naszej zmiennej
+  int& reference = variable; //przypisanie wartosci zmiennej przez referencje
+
+//podane wartosci beda wyswietlane w zapisie szesnastkowym i dziesietnym
+
+  printf("(a) %x | %i\n", variable, variable);   //wyswietlenie wartosci zmiennej
+  printf("(b) %x | %i\n", &variable, &variable); //wyswietlenie adresu naszej zmiennej
+  printf("(c) %x | %i\n", pointer, pointer);  //wyswietla sie adres wyciagniety z referencji
+  printf("(d) %x | %i\n", *pointer, *pointer); //wyswietlenie naszej wartosci zmiennej poprzez wyłuskanie wartosci
+  printf("(e) %x | %i\n", &pointer, &pointer); //wyswietlenie adresu naszego wskaznika
+  printf("(f) %x | %i\n", reference, reference); //wyswietlenie wartosci zmiennej przez referencje
+  printf("(g) %x | %i\n", &reference, &reference); //wyswietlenie adresu referencji
+
+  int table[6]; //stworzenie jednowymiarowej tablicy 6 elementowej typu int
+  for(int i = 0 ; i < 6 ; i++) table[i] = i * 10; //przypisanie kazdemu elementowi tablicy wartosci poprzez petle
+
+  int* pointerA = table; //stowrzenie wskaznika ktory wskazuje na pierwszy element tablicy
+  int* pointerB = &table[2]; //stworzenie wskaznika ktory przechowuje adres 3 elementu tablicy
+
+  printf("\n (a)  %i\n ", pointerA - pointerB);  // wyswietla roznice miedzy elementem pierwszego i trzeciego elementu
+  printf("(b)  %i\n ", pointerA < pointerB); //wyswietla
+  printf("(c)  %i\n ", ++pointerA); // wyswietlenie adresu pocztakowego nastepnego elementu w tablicy (pointerA wskazywal na element o indeksie [0] po ++ wskazuje na element o indeksie [1])
+  printf("(d)  %i\n ", pointerB - 1); // wyswietla adres elementu ( pointerB wskazuje na element w tablicy o indeksie[2] zatem wyswietli sie adres elementu tablicy o indeksie [1])
+  printf("(e)  %i\n ", table + 1); // nazwa tablicy wskazuje adres elementu tablicy o indeksie [1] po dodaniu 1 zostanie nam wysiwtlony adres kolejnego elemntu czyli o indeksie [1]
+  printf("(f)  %i\n ", *(pointerA +2 )); // wyswitlenie wartosci (wyłuskanie) (po przesunieciu o dwa elementy w pamieci )
+
+}
