@@ -1,0 +1,53 @@
+#include <cstdio>
+#include <stdlib.h>
+#include <time.h> //bilioteki dzieki ktorym mozemy losowac
+
+int main(int argc, char** argv)
+{
+  int size=0 ;
+  char buffer[256];
+  srand( time( NULL ) ); //uruchomienie czasu
+
+
+
+  printf("Podaj wartosc tablicy = "); //pobieranie rozmiaru tablicy
+  fgets (buffer, 256, stdin);
+  size = atoi (buffer);
+
+  //tworzenie tablicy
+
+  float ** table = new float *[size]; //alokacja pamieci
+
+  for(int i=0 ; i < size ; i++)
+  {
+    table[i]= new float [size];
+
+    for(int j=0 ; j <size ; j++) table[i][j] = 1.0 * rand() / (RAND_MAX - 1);
+
+
+  }
+
+  //wyswietlenei zawartosci tablicy do 4 miejsc po przecinku
+
+  for(int i=0 ; i < size ; i++)
+  {
+
+    for(int j=0 ; j <size ; j++)
+    {
+      printf(" %.4f ", table[i][j]); // wyswietlenie do 4 liczb po przecinku
+
+    }
+    printf("\n");
+
+  }
+
+
+  //zwalnienie pamieci
+
+  for(int i=0 ; i <size ; i++)
+      delete [] table [i]; //uwalnianie pamieci
+  delete [] table ; //uwalnanie pamieci
+  table = NULL; // wyczyszczeni wskaznika
+
+
+}
