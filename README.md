@@ -1,1 +1,1 @@
-# programowanieObiektowe
+# Laboratoria z programowania obiektowego
